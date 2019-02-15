@@ -11,6 +11,9 @@ Friday class tutorials will be published in this repo.
 * Active the environment.
     * If windows, run `venv/bin/activate.bat` 
     * Otherwise, run `source venv/bin/activate`.
+* If you're running the program for the first time, run:
+    > `pip install -r requirements.txt`
+    (It is always safe to run this line, as it simply installs the necessary packages that your package will need.)
 * Run the program:
     * `python main.py`.
     
