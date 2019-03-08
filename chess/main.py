@@ -99,6 +99,16 @@ def init():
     return state
 
 
+def move_piece(board, initial_pos, final_pos):
+    new_board = np.array(board)
+
+    piece = new_board[initial_pos[0]][initial_pos[1]]
+    new_board[initial_pos[0]][initial_pos[1]] = 0
+
+    new_board[final_pos[0]][final_pos[1]] = piece
+
+    return new_board
+
 def main():
     state = init()
     turn = state['turn']
@@ -114,8 +124,10 @@ def main():
         notation = input()
 
         piece, start, end, is_capture, is_check = transform_notation(notation)
-
         piece = turn * piece  # Set the color for this piece
+
+        board = move_piece(board, start, end)
+
 
         turn = -turn
 
