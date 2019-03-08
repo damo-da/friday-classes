@@ -2,11 +2,11 @@ import numpy as np
 
 ## Declare constants
 PAWN = 1
-KNIGHT = 2
-ROOT = 3
-KING = 4
-QUEEN = 5
-BISHOP = 6
+KNIGHT = 6
+ROOK = 5
+KING = 2
+QUEEN = 3
+BISHOP = 4
 
 letter_mapper = {
     'P': 1,
