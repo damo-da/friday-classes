@@ -18,7 +18,7 @@ letter_mapper = {
 }
 
 
-def print_board(b):
+def print_board(board):
     """Flip and print the board in correct orientation."""
     b1 = np.flip(board, axis=0)
 
