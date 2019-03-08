@@ -28,8 +28,8 @@ def print_board(b):
 # Initialization
 board = np.zeros(shape=(8, 8), dtype=np.int)
 
-board[0] = [5, 6, 4, 3, 2, 4, 6, 5]
-board[1] = [1, 1, 1, 1, 1, 1, 1, 1]
+board[0] = [ROOK, KNIGHT, BISHOP, QUEEN, KING, BISHOP, KNIGHT, ROOK]
+board[1] = [PAWN, PAWN, PAWN, PAWN, PAWN, PAWN, PAWN, PAWN]
 
 board[7] = -board[0]
 board[6] = -board[1]
