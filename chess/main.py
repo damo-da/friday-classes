@@ -99,22 +99,25 @@ def init():
     return state
 
 
-state = init()
-turn = state['turn']
-board = state['board']
+def main():
+    state = init()
+    turn = state['turn']
+    board = state['board']
 
-while not game_is_complete(board, turn):
-    print_board(board)
-    if turn == 1:
-        print('White to move: ')
-    else:
-        print('Black to move: ')
+    while not game_is_complete(board, turn):
+        print_board(board)
+        if turn == 1:
+            print('White to move: ')
+        else:
+            print('Black to move: ')
 
-    notation = input()
+        notation = input()
 
-    piece, start, end, is_capture, is_check = transform_notation(notation)
+        piece, start, end, is_capture, is_check = transform_notation(notation)
 
-    piece = turn * piece  # Set the color for this piece
+        piece = turn * piece  # Set the color for this piece
 
-    turn = -turn
+        turn = -turn
 
+
+main()
