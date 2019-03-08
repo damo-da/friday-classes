@@ -41,7 +41,7 @@ turn = 1  # 1 or -1. 1 for white, -1 for black
 # print(board)
 # print_board(board)
 
-def is_game_complete(board, turn):
+def game_is_complete(board, turn):
     return False
 
 
@@ -60,7 +60,8 @@ def transform_letter(x):
 
     return number
 
-while not is_game_complete(board, turn):
+
+while not game_is_complete(board, turn):
     print_board(board)
     if turn == 1:
         print('White to move: ')
