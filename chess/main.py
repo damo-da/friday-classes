@@ -25,17 +25,7 @@ def print_board(board):
     print(b1)
 
 
-# Initialization
-board = np.zeros(shape=(8, 8), dtype=np.int)
 
-board[0] = [5, 6, 4, 3, 2, 4, 6, 5]
-board[1] = [1, 1, 1, 1, 1, 1, 1, 1]
-
-board[7] = -board[0]
-board[6] = -board[1]
-
-
-turn = 1  # 1 or -1. 1 for white, -1 for black
 
 
 # print(board)
@@ -60,6 +50,36 @@ def transform_letter(x):
 
     return number
 
+
+def init():
+    """Initializes a new board and set the pieces.
+
+    Returns:
+        dict: an "object" that contains the turn and the board
+    """
+
+    # Initialization
+    board = np.zeros(shape=(8, 8), dtype=np.int)
+
+    board[0] = [ROOK, KNIGHT, BISHOP, QUEEN, KING, BISHOP, KNIGHT, ROOK]
+    board[1] = [PAWN, PAWN, PAWN, PAWN, PAWN, PAWN, PAWN, PAWN]
+
+    board[7] = -board[0]
+    board[6] = -board[1]
+
+    turn = 1  # 1 or -1. 1 for white, -1 for black
+
+    state = {
+        "turn": turn,
+        "board": board
+    }
+
+    return state
+
+
+state = init()
+turn = state['turn']
+board = state['board']
 
 while not game_is_complete(board, turn):
     print_board(board)
