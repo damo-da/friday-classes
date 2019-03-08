@@ -35,9 +35,9 @@ def game_is_complete(board, turn):
     return False
 
 
-def transform_notation(notation):
+def transform_location(location):
     """Takes board coordinates (eg. d2, c4) and transforms into matrix coordinates."""
-    c, r = notation
+    c, r = location
 
     c = ord(c) - 97
     r = int(r) - 1
@@ -45,10 +45,32 @@ def transform_notation(notation):
     return (r, c)
 
 
-def transform_letter(x):
-    number = letter_mapper[x]
+def transform_letter_to_piece(letter):
+    letter = letter.upper()
+    number = letter_mapper[letter]
 
     return number
+
+
+def transform_notation(notation):
+    piece = transform_letter_to_piece(notation[0])
+
+    start = notation[1:3]
+
+    start = transform_location(start)
+
+    is_capture = (notation[3] is 'x')
+
+    if is_capture:
+        end = notation[4:6]
+    else:
+        end = notation[3:5]
+
+    end = transform_location(end)
+
+    is_check = (notation[-1] is '+')
+
+    return piece, start, end, is_capture, is_check
 
 
 def init():
@@ -90,24 +112,9 @@ while not game_is_complete(board, turn):
 
     notation = input()
 
-    piece = turn * transform_letter(notation[0])
+    piece, start, end, is_capture, is_check = transform_notation(notation)
 
-    start = notation[1:3]
-
-    start = transform_notation(start)
-
-    is_capture = (notation[3] is 'x')
-
-    if is_capture:
-        end = notation[4:6]
-    else:
-        end = notation[3:5]
-
-    end = transform_notation(end)
-
-    is_check = (notation[-1] is '+')
-
-    print(piece, start, end, is_capture, is_check)
+    piece = turn * piece  # Set the color for this piece
 
     turn = -turn
 
