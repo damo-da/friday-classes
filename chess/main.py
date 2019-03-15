@@ -1,6 +1,6 @@
 import numpy as np
 
-## Declare constants
+# Declare constants
 PAWN = 1
 KNIGHT = 6
 ROOK = 5
@@ -25,16 +25,14 @@ def print_board(board):
     print(b1)
 
 
-
-# print(board)
-# print_board(board)
-
 def game_is_complete(board, turn):
+    """Returns whether the game has ended."""
+    # TODO
     return False
 
 
 def transform_location(location):
-    """Takes board coordinates (eg. d2, c4) and transforms into matrix coordinates."""
+    """Takes board coordinates (eg. d2, c4) and transforms into matrix coordinates (eg: (3, 1) or ."""
     c, r = location
 
     c = ord(c) - 97
